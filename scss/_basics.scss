@@ -74,7 +74,7 @@ body {
     position: relative;
 }
 
-.led-clock-segment {
+.led-clock-segment:not(.led-clock-segment-ampm) {
     min-width: 2ch;
     position: relative;
     &::before {
@@ -87,44 +87,46 @@ body {
     &::before, &::after {
         opacity: 0.0625;
     }
-}
-
-.led-clock-segment-hour {
-    &::before {
-        content: '28';
+    &.led-clock-segment-hour {
+        &::before {
+            content: '28';
+        }
     }
-}
-.led-clock-segment-colon {
-    min-width: auto;
-    &::before {
-        content: ':';
+    &.led-clock-segment-colon {
+        min-width: auto;
+        &::before {
+            content: ':';
+        }
     }
-}
-.led-clock-segment-second {
-    font-size: 75%;
+    &.led-clock-segment-second {
+        font-size: 75%;
+    }
 }
 
 .led-clock-segment-ampm {
-    min-width: auto;
-    position: static;
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-style: normal;
-    display: inline-flex;
-    align-self: stretch;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 25%;
-    &::before, &::after {
-        position: static;
-        top: none;
-        left: none;
-        line-height: 0.75;
-    }
+    background-color: rgba(blue, 0.05);
+    position: relative;
+    width: 0.75ch;
     &::before {
+        position: absolute;
+        top: -4em;
+        left: 0;
+        font-size: 25%;
+        line-height: 0.75;
         content: 'AM';
     }
     &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 25%;
+        line-height: 0.75;
         content: 'PM';
+    }
+    &::before, &::after {
+        opacity: 0.0625;
     }
     &.am {
         &::before { opacity: 1; }

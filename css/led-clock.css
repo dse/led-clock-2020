@@ -1,45 +1,4 @@
-@font-face {
-  font-family: 'DSEG7-Modern';
-  src: url("../node_modules/dseg/fonts/DSEG7-Modern/DSEG7Modern-Bold.ttf");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'DSEG7-Modern';
-  src: url("../node_modules/dseg/fonts/DSEG7-Modern/DSEG7Modern-BoldItalic.ttf");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'DSEG7-Modern';
-  src: url("../node_modules/dseg/fonts/DSEG7-Modern/DSEG7Modern-Italic.ttf");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'DSEG7-Modern';
-  src: url("../node_modules/dseg/fonts/DSEG7-Modern/DSEG7Modern-Light.ttf");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'DSEG7-Modern';
-  src: url("../node_modules/dseg/fonts/DSEG7-Modern/DSEG7Modern-LightItalic.ttf");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'DSEG7-Modern';
-  src: url("../node_modules/dseg/fonts/DSEG7-Modern/DSEG7Modern-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
+@import url("../node_modules/dseg/css/dseg.css");
 /* center of screen layout */
 .led-clock {
   position: fixed;
@@ -161,12 +120,12 @@ body {
   position: relative;
 }
 
-.led-clock-segment {
+.led-clock-segment:not(.led-clock-segment-ampm) {
   min-width: 2ch;
   position: relative;
 }
 
-.led-clock-segment::before {
+.led-clock-segment:not(.led-clock-segment-ampm)::before {
   position: absolute;
   display: inline-block;
   top: 0;
@@ -174,59 +133,54 @@ body {
   content: '88';
 }
 
-.led-clock-segment::before, .led-clock-segment::after {
+.led-clock-segment:not(.led-clock-segment-ampm)::before, .led-clock-segment:not(.led-clock-segment-ampm)::after {
   opacity: 0.0625;
 }
 
-.led-clock-segment-hour::before {
+.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-hour::before {
   content: '28';
 }
 
-.led-clock-segment-colon {
+.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-colon {
   min-width: auto;
 }
 
-.led-clock-segment-colon::before {
+.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-colon::before {
   content: ':';
 }
 
-.led-clock-segment-second {
+.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-second {
   font-size: 75%;
 }
 
 .led-clock-segment-ampm {
-  min-width: auto;
-  position: static;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-style: normal;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 25%;
-}
-
-.led-clock-segment-ampm::before, .led-clock-segment-ampm::after {
-  position: static;
-  top: none;
-  left: none;
-  line-height: 0.75;
+  background-color: rgba(0, 0, 255, 0.05);
+  position: relative;
+  width: 0.75ch;
 }
 
 .led-clock-segment-ampm::before {
+  position: absolute;
+  top: -4em;
+  left: 0;
+  font-size: 25%;
+  line-height: 0.75;
   content: 'AM';
 }
 
 .led-clock-segment-ampm::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 25%;
+  line-height: 0.75;
   content: 'PM';
+}
+
+.led-clock-segment-ampm::before, .led-clock-segment-ampm::after {
+  opacity: 0.0625;
 }
 
 .led-clock-segment-ampm.am::before {
@@ -243,9 +197,9 @@ body.led-clock-page {
   background-color: black;
 }
 
-.led-clock {
-  font-family: 'DSEG7-Modern';
-  font-weight: normal;
+.led-clock-window {
+  font-family: 'DSEG7-Classic';
+  font-weight: 400;
   font-style: italic;
 }
 

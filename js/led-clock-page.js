@@ -14,31 +14,6 @@ var LEDClockPage = {
         this.addEvents();
     },
 
-    clearZoomValue: function () {
-        Array.from(document.querySelectorAll('.led-clock-line-inner')).forEach(function (inner) {
-            inner.style.fontSize = '';
-        });
-    },
-
-    setZoomValue: function (value) {
-        Array.from(document.querySelectorAll('.led-clock-line-inner')).forEach(function (inner) {
-            inner.style.fontSize = (value * 100) + '%';
-        });
-    },
-
-    computeAndSetZoomValue: function () {
-        this.clearZoomValue();
-        window.requestAnimationFrame(function () {
-            var maxWidth;
-            Array.from(document.querySelectorAll('.led-clock-line-inner')).forEach(function (line) {
-                if (maxWidth === undefined || maxWidth < line.clientWidth) {
-                    maxWidth = line.clientWidth;
-                }
-            });
-            this.setZoomValue(document.body.clientWidth / maxWidth * 0.95);
-        }.bind(this));
-    },
-
     addEvents: function () {
         var formCheckboxHandler = function (event) {
             var checked;
@@ -46,6 +21,7 @@ var LEDClockPage = {
                 console.log('24');
                 checked = event.target.checked;
                 this.ledClock.setIs24Hour(checked);
+                this.ledClock.setTime();
                 localStorage.setItem('led-clock--twenty-four-hour', JSON.stringify(checked));
                 event.preventDefault();
             }
@@ -98,8 +74,6 @@ var LEDClockPage = {
     setPropertiesFromStorage: function () {
         var style = document.documentElement.style;
         var value;
-
-        this.computeAndSetZoomValue();
 
         value = localStorage.getItem('led-clock--twenty-four-hour');
         console.debug("LEDClockPage: localStorage.getItem('led-clock--twenty-four-hour') returned " + JSON.stringify(value));
@@ -167,7 +141,6 @@ var LEDClockPage = {
 
     setDefaults: function () {
         var style = document.documentElement.style;
-        this.computeAndSetZoomValue();
         this.ledClock.setIs24Hour(false);
         this.setFormValues();
         try {

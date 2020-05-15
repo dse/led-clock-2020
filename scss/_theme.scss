@@ -4,10 +4,14 @@ body.led-clock-page {
     background-color: black;
 }
 
-.led-clock {
-    font-family: 'DSEG7-Modern';
-    font-weight: normal;
+.led-clock-window {
+    font-family: 'DSEG7-Classic';
+    font-weight: 400;
     font-style: italic;
+}
+
+.led-clock-segment:not(.led-clock-segment-ampm) {
+    // transform: skew(2deg);
 }
 
 .led-clock-line {

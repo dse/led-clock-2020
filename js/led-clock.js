@@ -140,7 +140,9 @@ var LEDClock = (function () {
 
         this.element.classList.add('led-clock');
         this.ticker = new TimeTicker();
-        this.ticker.callback = this.setTime.bind(this);
+        this.ticker.callback = function (date) {
+            this.setTime(date, /* tickFlag */ true);
+        }.bind(this);
         this.ticker.start();
     }
 
@@ -165,7 +167,11 @@ var LEDClock = (function () {
         this.is24Hour = flag;
     };
 
-    LEDClock.prototype.setTime = function (date) {
+    LEDClock.prototype.setTime = function (date, tickFlag) {
+        if (!date) {
+            date = new Date();
+        }
+
         var h = date.getHours();
         var m = date.getMinutes();
         var s = date.getSeconds();
@@ -203,18 +209,20 @@ var LEDClock = (function () {
         }
 
         var tick = false;
-        if (this.enableTicks) {
-            if (s === 0 && ms < 500) {
-                tick = true;
+        if (tickFlag) {
+            if (this.enableTicks) {
+                if (s === 0 && ms < 500) {
+                    tick = true;
+                }
             }
-        }
-        if (this.enableSecondsTicks && this.elements.second) {
-            if (ms < 500) {
-                tick = true;
+            if (this.enableSecondsTicks && this.elements.second) {
+                if (ms < 500) {
+                    tick = true;
+                }
             }
-        }
-        if (tick) {
-            this.audio.play();
+            if (tick) {
+                this.audio.play();
+            }
         }
     };
 
