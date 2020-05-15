@@ -110,12 +110,15 @@ body {
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-style: normal;
     display: inline-flex;
+    align-self: stretch;
     flex-direction: column;
+    justify-content: space-between;
     font-size: 25%;
     &::before, &::after {
         position: static;
         top: none;
         left: none;
+        line-height: 0.75;
     }
     &::before {
         content: 'AM';

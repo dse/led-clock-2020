@@ -37,24 +37,24 @@
             </div>
 
             <!-- &zwj; shuts up a tidy warning -->
-            <div class="bottom-buttons" id="led-clock-controls">
+            <div class="bottom-buttons" id="led-clock-controls" data-led-clock="led-clock">
                 <div class="bottom-right-buttons">
                     <label class="css-reset">
-                        <button class="push-button" data-flip-clock-reload>&zwj;</button>
+                        <button class="push-button" data-led-clock-reload>&zwj;</button>
                         Reload
                     </label>
                     <label class="css-reset">
-                        <input type="checkbox" class="toggle-switch" name="enable-ticks" value="true" data-flip-clock-enable-ticks>
+                        <input type="checkbox" class="toggle-switch" name="enable-ticks" value="true" data-led-clock-enable-ticks>
                         <span class="toggle-switch"><span class="inner">&zwj;</span></span>
                         Ticks
                     </label>
                     <label class="css-reset">
-                        <input type="checkbox" class="toggle-switch" name="enable-seconds-ticks" value="true" data-flip-clock-enable-seconds-ticks>
+                        <input type="checkbox" class="toggle-switch" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
                         <span class="toggle-switch"><span class="inner">&zwj;</span></span>
                         &Prime;Ticks
                     </label>
                     <label class="css-reset">
-                        <input type="checkbox" class="toggle-switch" name="twenty-four-hour" value="true" data-flip-clock-twenty-four-hour>
+                        <input type="checkbox" class="toggle-switch" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
                         <span class="toggle-switch"><span class="inner">&zwj;</span></span>
                         24HR
                     </label>
@@ -63,11 +63,9 @@
 
             <script>
                 document.write('<' + 'script defer src="js/led-clock.js?cachebuster=' + cachebuster + '"></' + 'script>');
+                document.write('<' + 'script defer src="js/led-clock-page.js?cachebuster=' + cachebuster + '"></' + 'script>');
                 document.addEventListener('DOMContentLoaded', function () {
-                    var clock = new LEDClock({
-                        elementId: 'led-clock',
-                        controlsElementId: 'led-clock-controls'
-                    });
+                    LEDClockPage.init();
                 });
             </script>
 

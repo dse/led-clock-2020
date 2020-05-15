@@ -147,42 +147,22 @@ var LEDClock = (function () {
     LEDClock.prototype.setEnableTicks = function (flag) {
         flag = !!flag;
         this.enableTicks = flag;
-        var segments = this.segmentArray.filter(function (segment) {
-            return !segment.isSeconds;
-        });
-        console.log(segments.length);
-        segments.forEach(function (segment) {
-            segment.setEnableAudio(flag);
-        });
     };
 
     LEDClock.prototype.setEnableSecondsTicks = function (flag) {
         flag = !!flag;
         this.enableSecondsTicks = flag;
-        var segments = this.segmentArray.filter(function (segment) {
-            return segment.isSeconds;
-        });
-        console.log(segments.length);
-        segments.forEach(function (segment) {
-            segment.setEnableAudio(flag);
-        });
     };
 
     LEDClock.prototype.setEnableAudio = function (flag) {
         flag = !!flag;
         this.enableAudio = flag;
-        this.segmentArray.forEach(function (segment) {
-            segment.setEnableAudio(flag);
-        }.bind(this));
     };
 
     LEDClock.prototype.setIs24Hour = function (flag) {
         flag = !!flag;
         console.debug("LEDClock: setting is24Hour to " + JSON.stringify(flag));
         this.is24Hour = flag;
-        if (this.segments.hour) {
-            this.segments.hour.setIs24Hour(flag);
-        }
     };
 
     LEDClock.prototype.setTime = function (date) {
@@ -221,9 +201,28 @@ var LEDClock = (function () {
                 this.elements.ampm.classList[h >= 12 ? 'add' : 'remove']('pm');
             }
         }
+
+        var tick = false;
+        if (this.enableTicks) {
+            if (s === 0 && ms < 500) {
+                tick = true;
+            }
+        }
+        if (this.enableSecondsTicks && this.elements.second) {
+            if (ms < 500) {
+                tick = true;
+            }
+        }
+        if (tick) {
+            this.audio.play();
+        }
     };
 
     LEDClock.prototype.enableAudioByUserRequest = function () {
+        if (this.enabledAudioByUserRequest) {
+            return;
+        }
+        this.enabledAudioByUserRequest = true;
         this.audio.play();
     };
 
