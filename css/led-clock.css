@@ -358,3 +358,9 @@ body.led-clock-page {
 [type="checkbox"]:checked.toggle-switch + :not([type="checkbox"]).toggle-switch > .inner {
   right: 0;
 }
+
+.bottom-buttons a {
+  color: inherit;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
