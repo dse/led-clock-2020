@@ -1,10 +1,11 @@
-PUBLISH_DIR = /www/webonastick.com/htdocs/lc
-GIT_REMOTE  = git@github.com:dse/led-clock-2020.git
+GIT_REMOTE   = git@github.com:dse/led-clock-2020.git
+PUBLISH_DEST = dse@webonastick.com # for ssh
+PUBLISH_DIR  = /www/webonastick.com/htdocs/lc
 
 default: sass
 
 publish:
-	ssh dse@webonastick.com "bash -c '\
+	ssh $(PUBLISH_DEST) "bash -c '\
 		if [[ -e $(PUBLISH_DIR) ]] ; then \
 			cd $(PUBLISH_DIR) && git checkout -- . && git pull && npm install ; \
 		else \
@@ -13,7 +14,7 @@ publish:
 	'"
 
 test:
-	rsync -r -l -v -c -C --exclude=node_modules ./ dse@webonastick.com:$(PUBLISH_DIR)
+	rsync -r -l -v -c -C --exclude=node_modules ./ $(PUBLISH_DEST):$(PUBLISH_DIR)
 
 sass:
 	gulp sass
