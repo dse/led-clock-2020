@@ -5,9 +5,9 @@
   top: 50%;
   left: 0;
   width: 100%;
-  -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   text-align: center;
   line-height: 1;
 }
@@ -28,12 +28,15 @@
 
 .led-clock-line-inner {
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: start;
+  -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
@@ -72,13 +75,13 @@ button,
 [type="checkbox"],
 [type="radio"] {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 }
 
 html {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 100%;
 }
 
@@ -86,7 +89,7 @@ html {
 *::before,
 *::after {
   -webkit-box-sizing: inherit;
-  box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 body {
@@ -103,11 +106,13 @@ body {
 .led-clock-window {
   background-color: black;
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   border-radius: 2rem;
   padding: 1rem;
   -webkit-box-align: end;
+  -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end;
   font-family: 'DSEG7-Modern';
@@ -241,7 +246,6 @@ body.led-clock-page {
 .bottom-right-buttons button {
   color: inherit;
   text-shadow: 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.5);
-  -webkit-text-shadow: 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.5);
 }
 
 .bottom-buttons label {
@@ -274,6 +278,7 @@ body.led-clock-page {
 .push-button::after {
   content: '';
   position: absolute;
+  border-radius: -webkit-calc(1em - 3px);
   border-radius: calc(1em - 3px);
   top: 1px;
   bottom: 1px;
@@ -315,6 +320,7 @@ body.led-clock-page {
   right: 50%;
   width: 100%;
   height: 1.4em;
+  border-radius: -webkit-calc(1em - 2px);
   border-radius: calc(1em - 2px);
   content: '';
   -webkit-transition: right 125ms;
@@ -334,6 +340,7 @@ body.led-clock-page {
   right: 50%;
   height: 1.4em;
   width: 1.4em;
+  border-radius: -webkit-calc(1em - 2px);
   border-radius: calc(1em - 2px);
   background-color: #ccc;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#999));
@@ -346,6 +353,7 @@ body.led-clock-page {
 [type="checkbox"].toggle-switch + :not([type="checkbox"]).toggle-switch > .inner::after {
   content: '';
   position: absolute;
+  border-radius: -webkit-calc(1em - 2px - 1px);
   border-radius: calc(1em - 2px - 1px);
   top: 1px;
   bottom: 1px;
