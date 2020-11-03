@@ -72,7 +72,7 @@ body {
 }
 
 .led-clock-segment:not(.led-clock-segment-ampm) {
-    min-width: 2ch;
+    // min-width: 2ch;
     position: relative;
     &::before {
         position: absolute;
@@ -90,7 +90,7 @@ body {
         }
     }
     &.led-clock-segment-colon {
-        min-width: auto;
+        // min-width: none;
         &::before {
             content: ':';
         }
@@ -105,7 +105,12 @@ body {
     font-style: normal;
     background-color: rgba(blue, 0.05);
     position: relative;
-    width: 0.75ch;
+    .led-clock.led-clock-12-hour & {
+        width: 0.75ch;
+    }
+    .led-clock.led-clock-24-hour & {
+        display: none;
+    }
     &::before {
         position: absolute;
         top: -4em;

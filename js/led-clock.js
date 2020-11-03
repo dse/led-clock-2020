@@ -144,6 +144,7 @@ var LEDClock = (function () {
             this.setTime(date, /* tickFlag */ true);
         }.bind(this);
         this.ticker.start();
+        this.addOrRemove12HourClass();
     }
 
     LEDClock.prototype.setEnableTicks = function (flag) {
@@ -165,6 +166,17 @@ var LEDClock = (function () {
         flag = !!flag;
         console.debug("LEDClock: setting is24Hour to " + JSON.stringify(flag));
         this.is24Hour = flag;
+        this.addOrRemove12HourClass();
+    };
+
+    LEDClock.prototype.addOrRemove12HourClass = function () {
+        if (this.is24Hour) {
+            this.element.classList.remove('led-clock-12-hour');
+            this.element.classList.add('led-clock-24-hour');
+        } else {
+            this.element.classList.remove('led-clock-24-hour');
+            this.element.classList.add('led-clock-12-hour');
+        }
     };
 
     LEDClock.prototype.setTime = function (date, tickFlag) {

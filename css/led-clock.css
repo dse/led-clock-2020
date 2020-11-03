@@ -126,7 +126,6 @@ body {
 }
 
 .led-clock-segment:not(.led-clock-segment-ampm) {
-  min-width: 2ch;
   position: relative;
 }
 
@@ -146,10 +145,6 @@ body {
   content: '28';
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-colon {
-  min-width: auto;
-}
-
 .led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-colon::before {
   content: ':';
 }
@@ -163,7 +158,14 @@ body {
   font-style: normal;
   background-color: rgba(0, 0, 255, 0.05);
   position: relative;
+}
+
+.led-clock.led-clock-12-hour .led-clock-segment-ampm {
   width: 0.75ch;
+}
+
+.led-clock.led-clock-24-hour .led-clock-segment-ampm {
+  display: none;
 }
 
 .led-clock-segment-ampm::before {
@@ -216,25 +218,18 @@ body.led-clock-page {
   all: unset;
 }
 
-.bottom-buttons {
-  position: fixed;
-  bottom: 0.5rem;
-  left: 1rem;
-  right: 1rem;
-  font-size: 1rem;
-}
-
-.bottom-buttons::after {
-  content: '';
-  clear: both;
-}
-
 .bottom-left-buttons {
-  float: left;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0.5em;
 }
 
 .bottom-right-buttons {
-  float: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em;
 }
 
 .bottom-left-buttons,
@@ -242,17 +237,50 @@ body.led-clock-page {
   color: rgba(255, 255, 255, 0.25);
 }
 
-.bottom-left-buttons button,
-.bottom-right-buttons button {
+.bottom-left-buttons a,
+.bottom-right-buttons a {
+  color: inherit;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
+
+.bottom-panel {
+  position: fixed;
+  bottom: 0.5rem;
+  left: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+}
+
+.bottom-panel::after {
+  content: '';
+  clear: both;
+}
+
+.bottom-panel-left {
+  float: left;
+}
+
+.bottom-panel-right {
+  float: right;
+}
+
+.bottom-panel-left,
+.bottom-panel-right {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.bottom-panel-left button,
+.bottom-panel-right button {
   color: inherit;
   text-shadow: 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.5);
 }
 
-.bottom-buttons label {
+.bottom-panel label {
   display: inline-block;
 }
 
-.bottom-buttons label + label {
+.bottom-panel label + label {
   margin-left: 1em;
 }
 
@@ -289,6 +317,16 @@ body.led-clock-page {
   content: '';
 }
 
+.toggle-switch {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.toggle-switch::before {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
 [type="checkbox"].toggle-switch {
   width: 0;
   opacity: 0;
@@ -299,8 +337,6 @@ body.led-clock-page {
   display: inline-block;
   vertical-align: middle;
   border: 2px solid black;
-  -webkit-box-sizing: padding-box;
-          box-sizing: padding-box;
   height: 1.4em;
   width: 2.8em;
   background-color: black;
@@ -367,7 +403,7 @@ body.led-clock-page {
   right: 0;
 }
 
-.bottom-buttons a {
+.bottom-panel a {
   color: inherit;
   -webkit-text-decoration-style: dotted;
           text-decoration-style: dotted;
