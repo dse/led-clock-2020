@@ -86,7 +86,12 @@ body {
     }
     &.led-clock-segment-hour {
         &::before {
-            content: '28';
+            content: '88';
+        }
+    }
+    @at-root .led-clock-12-hour &.led-clock-segment-hour {
+        &::before {
+            content: '18';
         }
     }
     &.led-clock-segment-colon {
@@ -106,7 +111,7 @@ body {
     background-color: rgba(blue, 0.05);
     position: relative;
     .led-clock.led-clock-12-hour & {
-        width: 0.75ch;
+        width: 0;
     }
     .led-clock.led-clock-24-hour & {
         display: none;

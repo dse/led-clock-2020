@@ -18,7 +18,7 @@
 }
 
 .led-clock-time-line {
-  font-size: 18vw;
+  font-size: 20vw;
 }
 
 /* horizontal layout */
@@ -142,7 +142,11 @@ body {
 }
 
 .led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-hour::before {
-  content: '28';
+  content: '88';
+}
+
+.led-clock-12-hour .led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-hour::before {
+  content: '18';
 }
 
 .led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-colon::before {
@@ -161,7 +165,7 @@ body {
 }
 
 .led-clock.led-clock-12-hour .led-clock-segment-ampm {
-  width: 0.75ch;
+  width: 0;
 }
 
 .led-clock.led-clock-24-hour .led-clock-segment-ampm {
