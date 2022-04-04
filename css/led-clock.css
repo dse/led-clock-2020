@@ -8,24 +8,37 @@
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  text-align: center;
   line-height: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 /* vertical layout and sizing */
 .led-clock-line + .led-clock-line {
-  margin-top: 1rem;
+  margin-top: 5vw;
 }
 
 .led-clock-time-line {
   font-size: 20vw;
 }
 
-/* horizontal layout */
-.led-clock-line {
-  margin: 0 auto;
+.led-clock-date-line {
+  font-size: 10vw;
+  padding-right: 2vw;
 }
 
+/* horizontal layout */
 .led-clock-line-inner {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -120,6 +133,10 @@ body {
   font-style: italic;
 }
 
+.led-clock-segment-weekday {
+  font-family: 'DSEG14-Modern';
+}
+
 .led-clock-segment {
   display: inline-block;
   position: relative;
@@ -154,6 +171,10 @@ body {
 }
 
 .led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-second {
+  font-size: 75%;
+}
+
+.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-weekday {
   font-size: 75%;
 }
 

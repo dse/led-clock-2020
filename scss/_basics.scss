@@ -66,6 +66,10 @@ body {
     font-style: italic;
 }
 
+.led-clock-segment-weekday {
+    font-family: 'DSEG14-Modern';
+}
+
 .led-clock-segment {
     display: inline-block;
     position: relative;
@@ -101,6 +105,9 @@ body {
         }
     }
     &.led-clock-segment-second {
+        font-size: 75%;
+    }
+    &.led-clock-segment-weekday {
         font-size: 75%;
     }
 }

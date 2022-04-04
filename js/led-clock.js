@@ -208,11 +208,13 @@ var LEDClock = (function () {
             return;
         }
         this.elements = {};
-        this.elements.hour   = this.element.querySelector('[data-led-clock-hour]');
-        this.elements.colon  = this.element.querySelector('[data-led-clock-colon]');
-        this.elements.minute = this.element.querySelector('[data-led-clock-minute]');
-        this.elements.second = this.element.querySelector('[data-led-clock-second]');
-        this.elements.ampm   = this.element.querySelector('[data-led-clock-ampm]');
+        this.elements.hour    = this.element.querySelector('[data-led-clock-hour]');
+        this.elements.colon   = this.element.querySelector('[data-led-clock-colon]');
+        this.elements.minute  = this.element.querySelector('[data-led-clock-minute]');
+        this.elements.second  = this.element.querySelector('[data-led-clock-second]');
+        this.elements.ampm    = this.element.querySelector('[data-led-clock-ampm]');
+        this.elements.weekday = this.element.querySelector('[data-led-clock-weekday]');
+        this.elements.day     = this.element.querySelector('[data-led-clock-day]');
         var date = new Date();
 
         this.audio = new LEDClockAudio(tickURL);
@@ -267,6 +269,11 @@ var LEDClock = (function () {
         var m = date.getMinutes();
         var s = date.getSeconds();
         var ms = date.getMilliseconds();
+        var day = date.getDay();
+        var dd = String(date.getDate());
+        while (dd.length < 2) {
+            dd = '!' + dd;
+        }
 
         var mm = ('0' + m).slice(-2);
         var ss = ('0' + s).slice(-2);
@@ -277,6 +284,12 @@ var LEDClock = (function () {
             hh = ('!' + ((h + 11) % 12 + 1)).slice(-2);
         }
 
+        if (this.elements.weekday) {
+            this.elements.weekday.innerHTML = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][day].toUpperCase();
+        }
+        if (this.elements.day) {
+            this.elements.day.innerHTML = dd;
+        }
         if (this.elements.hour) {
             this.elements.hour.innerHTML = hh;
         }
