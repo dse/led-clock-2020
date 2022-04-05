@@ -6,54 +6,22 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 0.5em;
 }
 .bottom-right-buttons {
     position: fixed;
     bottom: 0;
     right: 0;
-    padding: 0.5em;
 }
+
 .bottom-left-buttons,
 .bottom-right-buttons {
+    font-size: 200%;
+    padding: 0.5em;
     color: rgba(white, 0.25);
     a {
         color: inherit;
         text-decoration-style: dotted;
     }
-}
-
-.bottom-panel {
-    position: fixed;
-    bottom: 0.5rem;
-    left: 1rem;
-    right: 1rem;
-    font-size: 1rem;
-    &::after {
-        content: '';
-        clear: both;
-    }
-}
-.bottom-panel-left {
-    float: left;
-}
-.bottom-panel-right {
-    float: right;
-}
-.bottom-panel-left,
-.bottom-panel-right {
-    color: rgba(white, 0.25);
-}
-.bottom-panel-left button,
-.bottom-panel-right button {
-    color: inherit;
-    text-shadow: .125em .125em .125em rgba(0, 0, 0, 0.5);
-}
-.bottom-panel label {
-    display: inline-block;
-}
-.bottom-panel label + label {
-    margin-left: 1em;
 }
 
 /**

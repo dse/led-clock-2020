@@ -6,104 +6,81 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- default, black, and black-translucent -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /><!-- default, black, and black-translucent -->
+        <meta name="apple-mobile-web-app-title" content="LED Clock">
 
         <title>LED Clock</title>
-
-        <script>
-            // iPad 2:        Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13G36
-            // iPhone 6 plus: 12.4.6 16G183; 12.4.7 16G192
-            if (/\bMobile\/13G36\b/.test(navigator.userAgent) || /(?:^|\?|&)molasses(?:$|=|&)/.test(location.search)) {
-                document.documentElement.classList.add('molasses');
-                document.documentElement.setAttribute('data-molasses', '');
-            }
-        </script>
-
         <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+        <link rel="stylesheet" href="css/foundation.min.css">
+        <link rel="stylesheet" href="css/led-clock.min.css">
 
-        <script>
-            var cachebuster = new Date().getTime();
-            document.write('<' + 'link rel="stylesheet" href="css/foundation.min.css?cachebuster=' + cachebuster + '">');
-            document.write('<' + 'link rel="stylesheet" href="css/led-clock.min.css?cachebuster=' + cachebuster + '">');
-        </script>
-
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
     </head>
     <body class="led-clock__page">
-        <div class="led-clock__page-body-inner">
 
-            <div data-led-clock class="led-clock" id="led-clock">
-                <div class="led-clock__line led-clock__line--date" data-led-clock-line>
-                    <div class="led-clock__line-inner">
-                        <div class="led-clock__window">
-                            <div data-led-clock-weekday class="led-clock__segment led-clock__segment--weekday">SUN</div>&nbsp;&nbsp;
-                            <div data-led-clock-day     class="led-clock__segment led-clock__segment--day    ">31</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="led-clock__line led-clock__line--time" data-led-clock-line>
-                    <div class="led-clock__line-inner">
-                        <div class="led-clock__window">
-                            <div data-led-clock-ampm class="led-clock__segment led-clock__segment--ampm"></div>
-                            <div data-led-clock-hour class="led-clock__segment led-clock__segment--hour">00</div>
-                            <div data-led-clock-colon class="led-clock__segment led-clock__segment--colon">:</div>
-                            <div data-led-clock-minute class="led-clock__segment led-clock__segment--minute">00</div>
-                            <div data-led-clock-second class="led-clock__segment led-clock__segment--second">00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="led-clock__line led-clock__line--blank">
-                </div>
+        <div data-led-clock class="led-clock" id="led-clock">
+            <div class="led-clock__line led-clock__line--date" data-led-clock-line>
+                <div data-led-clock-weekday class="led-clock__segment led-clock__segment--weekday">SUN</div>&nbsp;&nbsp;
+                <div data-led-clock-day     class="led-clock__segment led-clock__segment--day    ">31</div>
             </div>
-
-            <div class="bottom-right-buttons">
-                <a data-open="settingsModal" href="javascript:void(0);"><i class="fas fa-cog"></i></a>
+            <div class="led-clock__line led-clock__line--time" data-led-clock-line>
+                <div data-led-clock-ampm class="led-clock__segment led-clock__segment--ampm"></div>
+                <div data-led-clock-hour class="led-clock__segment led-clock__segment--hour">00</div>
+                <div data-led-clock-colon class="led-clock__segment led-clock__segment--colon">:</div>
+                <div data-led-clock-minute class="led-clock__segment led-clock__segment--minute">00</div>
+                <div data-led-clock-second class="led-clock__segment led-clock__segment--second">00</div>
             </div>
-
-            <div class="reveal" data-reveal id="settingsModal">
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h1 class="h3">
-                    Settings
-                </h1>
-                <div class="margin-bottom-1">
-                    <label class="margin-bottom-half">
-                        <input type="checkbox" class="toggle-switch" name="enable-ticks" value="true" data-led-clock-enable-ticks>
-                        <span class="toggle-switch"><span class="inner">&zwj;</span></span>
-                        Ticks
-                    </label>
-                    <label class="margin-bottom-half">
-                        <input type="checkbox" class="toggle-switch" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
-                        <span class="toggle-switch"><span class="inner">&zwj;</span></span>
-                        Ticks for Seconds
-                    </label>
-                    <label class="margin-bottom-half">
-                        <input type="checkbox" class="toggle-switch" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
-                        <span class="toggle-switch"><span class="inner">&zwj;</span></span>
-                        24-Hour Mode
-                    </label>
-                </div>
-                <p>
-                    <a href="/c/">Flip Clock</a>
-                </p>
+            <div class="led-clock__line led-clock__line--blank">
             </div>
-
-            <script src="node_modules/jquery/dist/jquery.min.js"></script>
-            <script src="node_modules/foundation-sites/dist/js/foundation.min.js"></script>
-            <script src="node_modules/what-input/dist/what-input.min.js"></script>
-            <script>
-                var $ = jQuery;
-                $(document).foundation();
-            </script>
-
-            <script>
-                document.write('<' + 'script defer src="js/led-clock.js?cachebuster=' + cachebuster + '"></' + 'script>');
-                document.write('<' + 'script defer src="js/led-clock-page.js?cachebuster=' + cachebuster + '"></' + 'script>');
-                document.addEventListener('DOMContentLoaded', function () {
-                    LEDClockPage.init();
-                });
-            </script>
-
         </div>
+
+        <div class="bottom-right-buttons">
+            <a data-open="settingsModal" href="javascript:void(0);"><i class="fas fa-cog"></i></a>
+        </div>
+
+        <div class="reveal" data-reveal id="settingsModal">
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h1 class="h3">
+                Settings
+            </h1>
+            <div class="margin-bottom-1">
+                <label class="margin-bottom-half">
+                    <input type="checkbox" class="toggle-switch" name="enable-ticks" value="true" data-led-clock-enable-ticks>
+                    <span class="toggle-switch"><span class="inner">&zwj;</span></span>
+                    Ticks
+                </label>
+                <label class="margin-bottom-half">
+                    <input type="checkbox" class="toggle-switch" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
+                    <span class="toggle-switch"><span class="inner">&zwj;</span></span>
+                    Ticks for Seconds
+                </label>
+                <label class="margin-bottom-half">
+                    <input type="checkbox" class="toggle-switch" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
+                    <span class="toggle-switch"><span class="inner">&zwj;</span></span>
+                    24-Hour Mode
+                </label>
+            </div>
+            <p>
+                <a href="/c/">Flip Clock</a>
+            </p>
+        </div>
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/foundation-sites/dist/js/foundation.min.js"></script>
+        <script src="node_modules/what-input/dist/what-input.min.js"></script>
+        <script>
+            var $ = jQuery;
+            $(document).foundation();
+        </script>
+        <script src="js/led-clock.js"></script>
+        <script src="js/led-clock-page.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                LEDClockPage.init();
+            });
+        </script>
+
     </body>
 </html>

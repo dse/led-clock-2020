@@ -1,104 +1,4 @@
 @import url("../node_modules/dseg/css/dseg.css");
-/* center of screen layout */
-.led-clock {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  line-height: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-/* vertical layout and sizing */
-.led-clock__line--date {
-  font-size: 5vw;
-  padding-right: 2vw;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 50%;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.led-clock__line--time {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  font-size: 20vw;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.led-clock__line--blank {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 50%;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
-}
-
-/* horizontal layout */
-.led-clock__line-inner {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.led-clock__line .led-clock__window + .led-clock__window {
-  margin-left: 1rem;
-}
-
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -149,6 +49,9 @@ html {
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-weight: normal;
   line-height: 1.5;
@@ -157,30 +60,102 @@ body {
 }
 
 /*****************************************************************************/
-.led-clock__window {
+.led-clock {
   background-color: black;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  border-radius: 2rem;
-  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end;
-  font-family: 'DSEG7-Modern';
-  font-weight: normal;
-  font-style: italic;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.led-clock__segment--weekday {
-  font-family: 'DSEG14-Modern';
+.led-clock__line--date {
+  padding-top: 4vw;
+  font-size: 5vw;
+  padding-right: 2vw;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 50%;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.led-clock__line--time {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-size: 20vw;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.led-clock__line--blank {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 50%;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  padding-bottom: 4vw;
 }
 
 .led-clock__segment {
   display: inline-block;
   position: relative;
+  font-family: 'DSEG7-Classic';
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1;
+}
+
+.led-clock__segment--weekday {
+  font-family: 'DSEG14-Classic';
 }
 
 .led-clock__segment:not(.led-clock__segment--ampm) {
@@ -236,7 +211,8 @@ body {
 
 .led-clock__segment--ampm::before {
   position: absolute;
-  top: -4em;
+  top: 0;
+  bottom: auto;
   left: 0;
   font-size: 25%;
   line-height: 0.75;
@@ -245,6 +221,7 @@ body {
 
 .led-clock__segment--ampm::after {
   position: absolute;
+  top: auto;
   bottom: 0;
   left: 0;
   font-size: 25%;
@@ -288,18 +265,18 @@ body.led-clock__page {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 0.5em;
 }
 
 .bottom-right-buttons {
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 0.5em;
 }
 
 .bottom-left-buttons,
 .bottom-right-buttons {
+  font-size: 200%;
+  padding: 0.5em;
   color: rgba(255, 255, 255, 0.25);
 }
 
@@ -308,46 +285,6 @@ body.led-clock__page {
   color: inherit;
   -webkit-text-decoration-style: dotted;
           text-decoration-style: dotted;
-}
-
-.bottom-panel {
-  position: fixed;
-  bottom: 0.5rem;
-  left: 1rem;
-  right: 1rem;
-  font-size: 1rem;
-}
-
-.bottom-panel::after {
-  content: '';
-  clear: both;
-}
-
-.bottom-panel-left {
-  float: left;
-}
-
-.bottom-panel-right {
-  float: right;
-}
-
-.bottom-panel-left,
-.bottom-panel-right {
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.bottom-panel-left button,
-.bottom-panel-right button {
-  color: inherit;
-  text-shadow: 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.5);
-}
-
-.bottom-panel label {
-  display: inline-block;
-}
-
-.bottom-panel label + label {
-  margin-left: 1em;
 }
 
 /**

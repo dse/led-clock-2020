@@ -1,50 +1,4 @@
-html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-}
-
 body {
-    margin: 0;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-}
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-    -webkit-appearance: button;
-}
-
-[type="checkbox"],
-[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-}
-
-html {
-    box-sizing: border-box;
-    font-size: 100%;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
-body {
-    margin: 0;
-    padding: 0;
     font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     font-weight: normal;
     line-height: 1.5;
@@ -54,29 +8,53 @@ body {
 
 /*****************************************************************************/
 
-.led-clock__window {
+.led-clock {
     background-color: black;
-    display: inline-flex;
-    border-radius: 2rem;
-    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: flex-end;
-
-    font-family: 'DSEG7-Modern';
-    font-weight: normal;
-    font-style: italic;
+    justify-content: center;
 }
-
-.led-clock__segment--weekday {
-    font-family: 'DSEG14-Modern';
+.led-clock__line--date {
+    padding-top: 4vw;
+    font-size: 5vw;
+    padding-right: 2vw;
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
-
+.led-clock__line--time {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 20vw;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+}
+.led-clock__line--blank {
+    flex: 0 1 50%;
+    padding-bottom: 4vw;
+}
 .led-clock__segment {
     display: inline-block;
     position: relative;
+    font-family: 'DSEG7-Classic';
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1;
 }
-
+.led-clock__segment--weekday {
+    font-family: 'DSEG14-Classic';
+}
 .led-clock__segment:not(.led-clock__segment--ampm) {
-    // min-width: 2ch;
     position: relative;
     &::before {
         position: absolute;
@@ -99,7 +77,6 @@ body {
         }
     }
     &.led-clock__segment--colon {
-        // min-width: none;
         &::before {
             content: ':';
         }
@@ -125,7 +102,8 @@ body {
     }
     &::before {
         position: absolute;
-        top: -4em;
+        top: 0;
+        bottom: auto;
         left: 0;
         font-size: 25%;
         line-height: 0.75;
@@ -133,6 +111,7 @@ body {
     }
     &::after {
         position: absolute;
+        top: auto;
         bottom: 0;
         left: 0;
         font-size: 25%;
