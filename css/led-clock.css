@@ -27,7 +27,7 @@
 }
 
 /* vertical layout and sizing */
-.led-clock-date-line {
+.led-clock__line--date {
   font-size: 5vw;
   padding-right: 2vw;
   -webkit-box-flex: 0;
@@ -49,7 +49,7 @@
           justify-content: flex-end;
 }
 
-.led-clock-time-line {
+.led-clock__line--time {
   padding-top: 4rem;
   padding-bottom: 4rem;
   font-size: 20vw;
@@ -72,7 +72,7 @@
           justify-content: center;
 }
 
-.led-clock-blank-line {
+.led-clock__line--blank {
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 50%;
       -ms-flex: 0 1 50%;
@@ -80,7 +80,7 @@
 }
 
 /* horizontal layout */
-.led-clock-line-inner {
+.led-clock__line-inner {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -95,7 +95,7 @@
           align-items: flex-start;
 }
 
-.led-clock-line .led-clock-window + .led-clock-window {
+.led-clock__line .led-clock__window + .led-clock__window {
   margin-left: 1rem;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 
 /*****************************************************************************/
-.led-clock-window {
+.led-clock__window {
   background-color: black;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -174,20 +174,20 @@ body {
   font-style: italic;
 }
 
-.led-clock-segment-weekday {
+.led-clock__segment--weekday {
   font-family: 'DSEG14-Modern';
 }
 
-.led-clock-segment {
+.led-clock__segment {
   display: inline-block;
   position: relative;
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm) {
+.led-clock__segment:not(.led-clock__segment--ampm) {
   position: relative;
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm)::before {
+.led-clock__segment:not(.led-clock__segment--ampm)::before {
   position: absolute;
   display: inline-block;
   top: 0;
@@ -195,46 +195,46 @@ body {
   content: '88';
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm)::before, .led-clock-segment:not(.led-clock-segment-ampm)::after {
+.led-clock__segment:not(.led-clock__segment--ampm)::before, .led-clock__segment:not(.led-clock__segment--ampm)::after {
   opacity: 0.0625;
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-hour::before {
+.led-clock__segment:not(.led-clock__segment--ampm).led-clock__segment--hour::before {
   content: '88';
 }
 
-.led-clock-12-hour .led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-hour::before {
+.led-clock__12-hour .led-clock__segment:not(.led-clock__segment--ampm).led-clock__segment--hour::before {
   content: '18';
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-colon::before {
+.led-clock__segment:not(.led-clock__segment--ampm).led-clock__segment--colon::before {
   content: ':';
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-second {
+.led-clock__segment:not(.led-clock__segment--ampm).led-clock__segment--second {
   font-size: 75%;
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm).led-clock-segment-weekday {
+.led-clock__segment:not(.led-clock__segment--ampm).led-clock__segment--weekday {
   font-size: 75%;
 }
 
-.led-clock-segment-ampm {
+.led-clock__segment--ampm {
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-style: normal;
   background-color: rgba(0, 0, 255, 0.05);
   position: relative;
 }
 
-.led-clock.led-clock-12-hour .led-clock-segment-ampm {
+.led-clock.led-clock__12-hour .led-clock__segment--ampm {
   width: 0;
 }
 
-.led-clock.led-clock-24-hour .led-clock-segment-ampm {
+.led-clock.led-clock-24-hour .led-clock__segment--ampm {
   display: none;
 }
 
-.led-clock-segment-ampm::before {
+.led-clock__segment--ampm::before {
   position: absolute;
   top: -4em;
   left: 0;
@@ -243,7 +243,7 @@ body {
   content: 'AM';
 }
 
-.led-clock-segment-ampm::after {
+.led-clock__segment--ampm::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -252,31 +252,31 @@ body {
   content: 'PM';
 }
 
-.led-clock-segment-ampm::before, .led-clock-segment-ampm::after {
+.led-clock__segment--ampm::before, .led-clock__segment--ampm::after {
   opacity: 0.0625;
 }
 
-.led-clock-segment-ampm.am::before {
+.led-clock__segment--ampm.am::before {
   opacity: 1;
 }
 
-.led-clock-segment-ampm.pm::after {
+.led-clock__segment--ampm.pm::after {
   opacity: 1;
 }
 
-body.led-clock-page {
+body.led-clock__page {
   min-height: 100vh;
   overflow: hidden;
   background-color: black;
 }
 
-.led-clock-window {
+.led-clock__window {
   font-family: 'DSEG7-Classic';
   font-weight: 400;
   font-style: italic;
 }
 
-.led-clock-line {
+.led-clock__line {
   color: yellow;
 }
 

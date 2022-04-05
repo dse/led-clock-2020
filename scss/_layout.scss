@@ -13,9 +13,9 @@
 }
 
 /* vertical layout and sizing */
-.led-clock-line + .led-clock-line {
+.led-clock__line + .led-clock__line {
 }
-.led-clock-date-line {
+.led-clock__line--date {
     font-size: 5vw;
     padding-right: 2vw;
     flex: 0 1 50%;
@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: flex-end;
 }
-.led-clock-time-line {
+.led-clock__line--time {
     padding-top: 4rem;
     padding-bottom: 4rem;
     font-size: 20vw;
@@ -32,18 +32,18 @@
     flex-direction: column;
     justify-content: center;
 }
-.led-clock-blank-line {
+.led-clock__line--blank {
     flex: 0 1 50%;
 }
 
 /* horizontal layout */
-.led-clock-line {
+.led-clock__line {
 }
-.led-clock-line-inner {
+.led-clock__line-inner {
     display: inline-flex;
     justify-content: center;
     align-items: flex-start;
 }
-.led-clock-line .led-clock-window + .led-clock-window {
+.led-clock__line .led-clock__window + .led-clock__window {
     margin-left: 1rem;
 }

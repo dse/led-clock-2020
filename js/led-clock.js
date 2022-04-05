@@ -252,11 +252,11 @@ var LEDClock = (function () {
 
     LEDClock.prototype.addOrRemove12HourClass = function () {
         if (this.is24Hour) {
-            this.element.classList.remove('led-clock-12-hour');
+            this.element.classList.remove('led-clock__12-hour');
             this.element.classList.add('led-clock-24-hour');
         } else {
             this.element.classList.remove('led-clock-24-hour');
-            this.element.classList.add('led-clock-12-hour');
+            this.element.classList.add('led-clock__12-hour');
         }
     };
 

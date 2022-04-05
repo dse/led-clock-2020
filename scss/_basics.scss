@@ -54,7 +54,7 @@ body {
 
 /*****************************************************************************/
 
-.led-clock-window {
+.led-clock__window {
     background-color: black;
     display: inline-flex;
     border-radius: 2rem;
@@ -66,16 +66,16 @@ body {
     font-style: italic;
 }
 
-.led-clock-segment-weekday {
+.led-clock__segment--weekday {
     font-family: 'DSEG14-Modern';
 }
 
-.led-clock-segment {
+.led-clock__segment {
     display: inline-block;
     position: relative;
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm) {
+.led-clock__segment:not(.led-clock__segment--ampm) {
     // min-width: 2ch;
     position: relative;
     &::before {
@@ -88,36 +88,36 @@ body {
     &::before, &::after {
         opacity: 0.0625;
     }
-    &.led-clock-segment-hour {
+    &.led-clock__segment--hour {
         &::before {
             content: '88';
         }
     }
-    @at-root .led-clock-12-hour &.led-clock-segment-hour {
+    @at-root .led-clock__12-hour &.led-clock__segment--hour {
         &::before {
             content: '18';
         }
     }
-    &.led-clock-segment-colon {
+    &.led-clock__segment--colon {
         // min-width: none;
         &::before {
             content: ':';
         }
     }
-    &.led-clock-segment-second {
+    &.led-clock__segment--second {
         font-size: 75%;
     }
-    &.led-clock-segment-weekday {
+    &.led-clock__segment--weekday {
         font-size: 75%;
     }
 }
 
-.led-clock-segment-ampm {
+.led-clock__segment--ampm {
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-style: normal;
     background-color: rgba(blue, 0.05);
     position: relative;
-    .led-clock.led-clock-12-hour & {
+    .led-clock.led-clock__12-hour & {
         width: 0;
     }
     .led-clock.led-clock-24-hour & {

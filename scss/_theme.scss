@@ -1,19 +1,19 @@
-body.led-clock-page {
+body.led-clock__page {
     min-height: 100vh;
     overflow: hidden;
     background-color: black;
 }
 
-.led-clock-window {
+.led-clock__window {
     font-family: 'DSEG7-Classic';
     font-weight: 400;
     font-style: italic;
 }
 
-.led-clock-segment:not(.led-clock-segment-ampm) {
+.led-clock__segment:not(.led-clock__segment--ampm) {
     // transform: skew(2deg);
 }
 
-.led-clock-line {
+.led-clock__line {
     color: yellow;
 }
