@@ -88,6 +88,13 @@ body {
           justify-content: center;
 }
 
+.led-clock__line {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 .led-clock__line--date {
   padding-top: 4vw;
   font-size: 5vw;
