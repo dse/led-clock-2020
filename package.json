@@ -11,7 +11,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "autoprefixer": "^9.7.6",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "dseg": "^0.46.0",
     "gulp": "^4.0.2",
     "gulp-load-plugins": "^2.0.3",
