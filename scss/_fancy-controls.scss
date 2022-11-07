@@ -2,6 +2,11 @@
     --fancy-panel-background-color: #222;
     --fancy-panel-color: #fff;
     --fancy-panel-highlight:  rgba(255, 255, 255, 0.25);
+
+    --fancy-toggle-switch-background-color-1: #ddd;
+    --fancy-toggle-switch-background-image-1: linear-gradient(to bottom, #fff, #ccc);
+    --fancy-toggle-switch-background-color-2: #ccc;
+    --fancy-toggle-switch-background-image-2: linear-gradient(to bottom, #bbb, #eee);
 }
 .fancy-panel {
     padding: 1rem;
@@ -46,10 +51,23 @@
                 right: 0;
                 width: calc(1em - 2px);
                 height: calc(1em - 2px);
-                background-color: #ddd;
+                background-color: var(--fancy-toggle-switch-background-color-1);
+                background-image: var(--fancy-toggle-switch-background-image-1);
                 border-radius: 50em;
                 box-shadow: 0 0 0.5em black;
             }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 1px;
+                right: 1px;
+                width: calc(1em - 4px);
+                height: calc(1em - 4px);
+                background-color: var(--fancy-toggle-switch-background-color-2);
+                background-image: var(--fancy-toggle-switch-background-image-2);
+                border-radius: 50em;
+            }
+            transition: width 150ms;
         }
         &:checked + .fancy-toggle-switch__placeholder {
             width: calc(100% - 2px);
