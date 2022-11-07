@@ -38,7 +38,7 @@
             <a data-open="settingsModal" href="javascript:void(0);"><i class="fas fa-cog"></i></a>
         </div>
 
-        <div class="reveal" data-reveal id="settingsModal">
+        <div class="reveal fancy-panel" data-reveal id="settingsModal">
             <button class="close-button" data-close aria-label="Close modal" type="button">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -47,18 +47,24 @@
             </h1>
             <div class="margin-bottom-1">
                 <label class="margin-bottom-half">
-                    <input type="checkbox" class="toggle-switch" name="enable-ticks" value="true" data-led-clock-enable-ticks>
-                    <span class="toggle-switch"><span class="inner">&zwj;</span></span>
+                    <span class="fancy-toggle-switch">
+                        <input type="checkbox" class="fancy-toggle-switch__control" name="enable-ticks" value="true" data-led-clock-enable-ticks>
+                        <span class="fancy-toggle-switch__placeholder"></span>
+                    </span>
                     Ticks
                 </label>
                 <label class="margin-bottom-half">
-                    <input type="checkbox" class="toggle-switch" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
-                    <span class="toggle-switch"><span class="inner">&zwj;</span></span>
+                    <span class="fancy-toggle-switch">
+                        <input type="checkbox" class="fancy-toggle-switch__control" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
+                        <span class="fancy-toggle-switch__placeholder"></span>
+                    </span>
                     Ticks for Seconds
                 </label>
                 <label class="margin-bottom-half">
-                    <input type="checkbox" class="toggle-switch" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
-                    <span class="toggle-switch"><span class="inner">&zwj;</span></span>
+                    <span class="fancy-toggle-switch">
+                        <input type="checkbox" class="fancy-toggle-switch__control" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
+                        <span class="fancy-toggle-switch__placeholder"></span>
+                    </span>
                     24-Hour Mode
                 </label>
             </div>
