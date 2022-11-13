@@ -11,16 +11,15 @@
 
         <title>LED Clock</title>
         <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-        <link rel="stylesheet" href="css/foundation.min.css">
-        <link rel="stylesheet" href="css/led-clock.min.css">
-
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script>
+            document.write('<link rel="stylesheet" href="css/led-clock.min.css?v=' + Date.now() + '">');
+        </script>
     </head>
     <body class="led-clock__page">
 
         <div data-led-clock class="led-clock" id="led-clock">
             <div class="led-clock__line led-clock__line--date" data-led-clock-line>
-                <div data-led-clock-weekday class="led-clock__segment led-clock__segment--weekday">SUN</div>&nbsp;&nbsp;
+                <div data-led-clock-weekday class="led-clock__segment led-clock__segment--weekday">SUN</div>
                 <div data-led-clock-day     class="led-clock__segment led-clock__segment--day    ">31</div>
             </div>
             <div class="led-clock__line led-clock__line--time" data-led-clock-line>
@@ -31,55 +30,69 @@
                 <div data-led-clock-second class="led-clock__segment led-clock__segment--second">00</div>
             </div>
             <div class="led-clock__line led-clock__line--blank">
+                &nbsp;
             </div>
         </div>
 
-        <div class="bottom-right-buttons">
-            <a data-open="settingsModal" href="javascript:void(0);"><i class="fas fa-cog"></i></a>
+        <div class="bottom-buttons">
+            <a data-open="settingsPanel" href="javascript:void(0);"><i class="fas fa-cog"></i></a>
         </div>
 
-        <div class="reveal fancy-panel" data-reveal id="settingsModal">
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <h1 class="h3">
-                Settings
-            </h1>
-            <div class="margin-bottom-1">
-                <label class="margin-bottom-half">
-                    <span class="fancy-toggle-switch">
-                        <input type="checkbox" class="fancy-toggle-switch__control" name="enable-ticks" value="true" data-led-clock-enable-ticks>
-                        <span class="fancy-toggle-switch__placeholder"></span>
-                    </span>
-                    Ticks
-                </label>
-                <label class="margin-bottom-half">
-                    <span class="fancy-toggle-switch">
-                        <input type="checkbox" class="fancy-toggle-switch__control" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
-                        <span class="fancy-toggle-switch__placeholder"></span>
-                    </span>
-                    Ticks for Seconds
-                </label>
-                <label class="margin-bottom-half">
-                    <span class="fancy-toggle-switch">
-                        <input type="checkbox" class="fancy-toggle-switch__control" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
-                        <span class="fancy-toggle-switch__placeholder"></span>
-                    </span>
-                    24-Hour Mode
-                </label>
+        <div class="fancy-panel bottom-panel" id="settingsPanel">
+            <div class="flex-row flex-nowrap flex-jc-space-between flex-ai-end">
+                <div class="flex-order-2 flex-shrink">
+                    <button class="close-button appearance-none" data-close="settingsPanel" aria-label="Close settings panel" type="button">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                </div>
+                <nav class="flex-order-1">
+                    <h1 class="font-inherit no-v-margins sr-only">
+                        Settings
+                    </h1>
+                    <ul class="list-unstyled flex-row flex-wrap no-v-margins">
+                        <li>
+                            <label>
+                                <span class="fancy-toggle-switch">
+                                    <input type="checkbox" class="fancy-toggle-switch__control" name="enable-ticks" value="true" data-led-clock-enable-ticks>
+                                    <span class="fancy-toggle-switch__placeholder"></span>
+                                </span>
+                                <span class="text-uppercase">
+                                    Ticks
+                                </span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <span class="fancy-toggle-switch">
+                                    <input type="checkbox" class="fancy-toggle-switch__control" name="enable-seconds-ticks" value="true" data-led-clock-enable-seconds-ticks>
+                                    <span class="fancy-toggle-switch__placeholder"></span>
+                                </span>
+                                <span class="text-uppercase">
+                                    <span class="sr-only">Ticks for</span> Seconds
+                                </span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <span class="fancy-toggle-switch">
+                                    <input type="checkbox" class="fancy-toggle-switch__control" name="twenty-four-hour" value="true" data-led-clock-twenty-four-hour>
+                                    <span class="fancy-toggle-switch__placeholder"></span>
+                                </span>
+                                <span class="text-uppercase">24-Hr</span>
+                            </label>
+                        </li>
+                        <li>
+                            <ul class="list-unstyled flex-row no-v-margins">
+                                <li class="start-gap">
+                                    <a href="/c/">Flip Clock</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <p>
-                <a href="/c/">Flip Clock</a>
-            </p>
         </div>
 
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/foundation-sites/dist/js/foundation.min.js"></script>
-        <script src="node_modules/what-input/dist/what-input.min.js"></script>
-        <script>
-            var $ = jQuery;
-            $(document).foundation();
-        </script>
         <script src="js/led-clock.js"></script>
         <script src="js/led-clock-page.js"></script>
         <script>

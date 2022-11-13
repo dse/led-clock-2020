@@ -148,3 +148,31 @@ var LEDClockPage = {
         } catch (e) { }
     }
 };
+
+/*jshint eqnull: true */
+document.addEventListener('click', function (event) {
+    var target;
+    if ((target = event.target.closest('[data-open]')) != null) {
+        dataOpen(target);
+    }
+    if ((target = event.target.closest('[data-close]')) != null) {
+        dataClose(target);
+    }
+});
+function dataOpen(target) {
+    console.log('data-open');
+    var id = target.getAttribute('data-open');
+    if (id == null) { return; }
+    console.log(id);
+    var elt = document.getElementById(id);
+    if (elt == null) { return; }
+    console.log(elt);
+    elt.classList.add('visible');
+}
+function dataClose(target) {
+    var id = target.getAttribute('data-close');
+    if (id == null) { return; }
+    var elt = document.getElementById(id);
+    if (elt == null) { return; }
+    elt.classList.remove('visible');
+}

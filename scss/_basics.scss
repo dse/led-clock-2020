@@ -18,20 +18,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
 }
 .led-clock__line--date {
     padding-top: 4vw;
     font-size: 5vw;
     padding-right: 2vw;
-    flex: 0 1 50%;
+    flex: 0 1 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    gap: 0.25em;
 }
 .led-clock__line--time {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     font-size: 20vw;
     flex: 0 0 auto;
     display: flex;
@@ -40,8 +41,13 @@ body {
     justify-content: center;
 }
 .led-clock__line--blank {
-    flex: 0 1 50%;
     padding-bottom: 4vw;
+    font-size: 5vw;
+    padding-right: 2vw;
+    flex: 0 1 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 .led-clock__segment {
     display: inline-block;
@@ -83,9 +89,11 @@ body {
     }
     &.led-clock__segment--second {
         font-size: 75%;
+        align-self: flex-end;
     }
     &.led-clock__segment--weekday {
         font-size: 75%;
+        align-self: flex-end;
     }
 }
 

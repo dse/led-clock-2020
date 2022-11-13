@@ -1,136 +1,111 @@
-.css-reset {
-    all: unset;
+.bottom-buttons,
+.bottom-panel {
+    padding: 1rem;
+    font-size: 1.25rem;
+    @media (min-width: 576px) {
+        font-size: 1.5rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.75rem;
+    }
 }
-
-.bottom-left-buttons {
+.bottom-buttons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0.25;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    text-align: right;
+}
+.bottom-panel {
+    &:not(.visible) {
+        display: none;
+    }
     position: fixed;
     bottom: 0;
     left: 0;
-}
-.bottom-right-buttons {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-
-.bottom-left-buttons,
-.bottom-right-buttons {
-    font-size: 200%;
-    padding: 0.5em;
-    color: rgba(white, 0.25);
-    a {
-        color: inherit;
-        text-decoration-style: dotted;
-    }
-}
-
-/**
- * Push Buttons and Switches
- */
-
-$push-button-switch-height:           1.4em;
-$push-button-switch-width:            $push-button-switch-height * 2;
-$push-button-switch-border-style:     solid;
-$push-button-switch-border-width:     2px;
-$push-button-switch-border-color:     black;
-$push-button-switch-border:           #{$push-button-switch-border-width} #{$push-button-switch-border-style} #{$push-button-switch-border-color};
-$push-button-switch-border-radius:    1em;
-$push-button-switch-bg-color:         #ccc;
-$push-button-switch-bg-image:         linear-gradient(to bottom, #eee, #999);
-$push-button-switch-bg-image-reverse: linear-gradient(to bottom, #999, #fff);
-
-.push-button {
-    display: inline-block;
-    vertical-align: middle;
-    border: #{$push-button-switch-border};
-    box-sizing: padding-box;
-    height: #{$push-button-switch-height};
-    width: #{$push-button-switch-width};
-    border-radius: #{$push-button-switch-border-radius};
-    position: relative;
-    top: -0.1em;
-    background-color: #{$push-button-switch-bg-color};
-    background-image: #{$push-button-switch-bg-image};
-    &::after {
-        content: '';
-        position: absolute;
-        border-radius: calc(#{$push-button-switch-border-radius} - 3px);
-        top: 1px;
-        bottom: 1px;
-        left: 1px;
-        right: 1px;
-        background-image: #{$push-button-switch-bg-image-reverse};
-        content: '';
-    }
-}
-
-.toggle-switch {
-    box-sizing: content-box;
-}
-.toggle-switch::before {
-    box-sizing: content-box;
-}
-
-[type="checkbox"].toggle-switch {
-    width: 0;
-    opacity: 0;
-    display: none;
-}
-[type="checkbox"].toggle-switch + :not([type="checkbox"]).toggle-switch {
-    display: inline-block;
-    vertical-align: middle;
-    border: #{$push-button-switch-border};
-    height: #{$push-button-switch-height};
-    width: #{$push-button-switch-width};
-    background-color: black;
-    border-radius: #{$push-button-switch-border-radius};
-    position: relative;
-    top: -0.1em;
-    overflow: hidden;
-}
-[type="checkbox"].toggle-switch + :not([type="checkbox"]).toggle-switch::before {
-    background-color: #cc6600;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 50%;
     width: 100%;
-    height: #{$push-button-switch-height};
-    border-radius: calc(#{$push-button-switch-border-radius} - #{$push-button-switch-border-width});
-    content: '';
-    transition: right 125ms;
 }
-[type="checkbox"]:checked.toggle-switch + :not([type="checkbox"]).toggle-switch::before {
-    right: 0;
+.font-inherit {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-stretch: inherit;
+    color: inherit;
 }
-[type="checkbox"].toggle-switch + :not([type="checkbox"]).toggle-switch > .inner {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 50%;
-    height: #{$push-button-switch-height};
-    width: #{$push-button-switch-height};
-    border-radius: calc(#{$push-button-switch-border-radius} - #{$push-button-switch-border-width});
-    background-color: #{$push-button-switch-bg-color};
-    background-image: #{$push-button-switch-bg-image};
-    content: '';
-    transition: right 125ms;
-    &::after {
-        content: '';
-        position: absolute;
-        border-radius: calc(#{$push-button-switch-border-radius} - #{$push-button-switch-border-width} - 1px);
-        top: 1px;
-        bottom: 1px;
-        left: 1px;
-        right: 1px;
-        background-image: #{$push-button-switch-bg-image-reverse};
+.no-v-margins {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.list-unstyled {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    > li {
+        display: auto;
     }
 }
-[type="checkbox"]:checked.toggle-switch + :not([type="checkbox"]).toggle-switch > .inner {
-    right: 0;
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
-
-.bottom-panel a {
+.flex-order-1 {
+    order: 1;
+}
+.flex-order-2 {
+    order: 2;
+}
+.flex-grow {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+.flex-shrink {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.appearance-none {
+    appearance: none;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-stretch: inherit;
     color: inherit;
-    text-decoration-style: dotted;
+    background: transparent;
+}
+.flex-jc-space-between {
+    justify-content: space-between;
+}
+.flex-ai-end {
+    align-items: flex-end;
+}
+.font-size-2 {
+    font-size: 2rem;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.start-gap {
+    padding-left: 1rem;
+}
+.end-gap {
+    padding-right: 1rem;
 }

@@ -7,7 +7,10 @@
     --fancy-toggle-switch-background-image-1: linear-gradient(to bottom, #fff, #ccc);
     --fancy-toggle-switch-background-color-2: #ccc;
     --fancy-toggle-switch-background-image-2: linear-gradient(to bottom, #bbb, #eee);
+
+    --fancy-panel-link-color: #ff6;
 }
+
 .fancy-panel {
     padding: 1rem;
     background-color: var(--fancy-panel-background-color);
@@ -17,6 +20,12 @@
     color: var(--fancy-panel-color);
     label {
         color: inherit;
+    }
+    a {
+        color: var(--fancy-panel-link-color);
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }
 
@@ -74,6 +83,7 @@
         }
     }
 }
+
 .fancy-push-button {
     height: 1em;
     width: 1.75em;
