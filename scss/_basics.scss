@@ -20,6 +20,9 @@ body {
     align-items: flex-end;
     justify-content: space-between;
 }
+.led-clock__line {
+    align-items: flex-end;
+}
 .led-clock__line--date {
     padding-top: 4vw;
     font-size: 5vw;
